@@ -6,7 +6,7 @@
 /*   By: dkovalen <dkovalen@student.unit.ua>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/25 15:38:27 by dkovalen          #+#    #+#             */
-/*   Updated: 2017/05/12 14:50:13 by dkovalen         ###   ########.fr       */
+/*   Updated: 2017/05/12 17:38:26 by dkovalen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int		add_new(t_printf *elem, va_list *ap)
 {
-	if ((elem->type == 'S' || elem->type == 'C') || ((elem->type == 's' ||
+	if ((elem->type == 'S') || ((elem->type == 's' ||
 	elem->type == 'c') && elem->modificator == 'l'))
 		return (print_wchar(elem, ap));
 	else if (elem->type == 's')
@@ -34,7 +34,7 @@ int		add_new(t_printf *elem, va_list *ap)
 	else if (elem->type == 'o' || elem->type == 'O' || elem->type == 'x'
 			|| elem->type == 'X' || elem->type == 'b')
 		return (print_another_system(elem, ap));
-	else if (elem->type == 'c')
+	else if (elem->type == 'c' || elem->type == 'C')
 		return (print_char(elem, ap, 0));
 	else
 		return (print_char(elem, ap, 1));
